@@ -45,5 +45,5 @@ ArticleCard.propTypes = {
     createdAt: PropTypes.string,
   }).isRequired,
   onOpen: PropTypes.func.isRequired,
-  onDelete: PropTypes.func, // bara för egna artiklar
+  onDelete: PropTypes.func, // only used for my own articles
 };

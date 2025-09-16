@@ -27,20 +27,20 @@ export const useArticles = create((set, get) => ({
     return { myArticles: next };
   }),
 
-  // Hämta artikel oavsett källa
+  // Fetch article regardless of source
   getById: (id) => {
     const { apiArticles, myArticles } = get();
     return [...myArticles, ...apiArticles].find(a => a.id === id) ?? null;
   },
 
-  // Likes/Dislikes uppdateras endast på detaljsidan (VG-kravet)
+  // Likes/Dislikes uppdated only at details page (VG)
   reactTo: (id, kind /* 'like' | 'dislike' */) => set(state => {
     const inc = (a) => {
       if (a.id !== id) return a;
       if (kind === 'like') return { ...a, likes: (a.likes ?? 0) + 1 };
       return { ...a, dislikes: (a.dislikes ?? 0) + 1 };
     };
-    // API-artiklar får reageras på i state (ej i API:t)
+    // React to API-articles in state (not in API)
     const apiNext = state.apiArticles.map(inc);
     const myNext = state.myArticles.map(inc);
     saveLocal(myNext);

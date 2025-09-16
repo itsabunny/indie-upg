@@ -34,8 +34,8 @@ export default function ArticleDetail() {
   if (!article) {
     return (
       <Stack spacing={2}>
-        <Typography variant="h6">Artikeln hittades inte</Typography>
-        <Button onClick={() => nav("/")}>Tillbaka</Button>
+        <Typography variant="h6">Article not found</Typography>
+        <Button onClick={() => nav("/")}>Back</Button>
       </Stack>
     );
   }
@@ -55,10 +55,10 @@ export default function ArticleDetail() {
           <CardContent>
             <Typography variant="h4">{article.title}</Typography>
 
-            {/* Meta-rad: datum + källa */}
+            {/* Meta-line: date + source */}
             <Typography variant="caption" sx={{ display: "block", mt: 1, opacity: 0.8 }}>
-              Publicerad: {formatDate(article.createdAt)} ·{" "}
-              {article.source === "local" ? "Min artikel" : "API-artikel"}
+              Published: {formatDate(article.createdAt)} ·{" "}
+              {article.source === "local" ? "My article" : "API-article"}
             </Typography>
 
             <Typography variant="body1" sx={{ mt: 2, whiteSpace: "pre-wrap" }}>
@@ -67,10 +67,10 @@ export default function ArticleDetail() {
 
             <Stack direction="row" spacing={2} sx={{ mt: 3 }} alignItems="center">
               <Button variant="contained" onClick={() => reactTo(article.id, "like")}>
-                👍 Gilla
+                👍 Like
               </Button>
               <Button variant="outlined" onClick={() => reactTo(article.id, "dislike")}>
-                👎 Ogilla
+                👎 Dislike
               </Button>
               <Typography variant="body2" sx={{ ml: 1 }}>
                 👍 {article.likes ?? 0} · 👎 {article.dislikes ?? 0}
@@ -78,7 +78,7 @@ export default function ArticleDetail() {
             </Stack>
 
             <Button sx={{ mt: 3 }} onClick={() => nav("/")}>
-              ← Tillbaka
+              ← Back
             </Button>
           </CardContent>
         </Card>

@@ -11,7 +11,7 @@ export default function Layout({ children }) {
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div">
-            TheHopening - senaste nyheterna, levererade med ett skutt</Typography>
+            TheHopening - latest news, let's hop to it</Typography>
         </Toolbar>
       </AppBar>
       <Box sx={{ py: 3 }}>
