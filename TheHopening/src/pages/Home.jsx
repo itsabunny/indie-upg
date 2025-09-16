@@ -31,7 +31,7 @@ export default function Home() {
       likes: 0,
       dislikes: 0,
       source: "local",
-      createdAt: new Date().toISOString(), // datum för egna artiklar
+      createdAt: new Date().toISOString(), // date for my own articles
     };
     addMyArticle(article);
     toast.success("Artikel skapad");
@@ -45,13 +45,13 @@ export default function Home() {
   return (
     <>
       <Typography variant="h5" sx={{ mb: 2 }}>
-        Skapa ny artikel
+        Post new article
       </Typography>
       <ArticleForm onSubmit={handleCreate} />
       <Divider sx={{ my: 3 }} />
 
       <Typography variant="h5" sx={{ mb: 2 }}>
-        Mina artiklar
+        My articles
       </Typography>
       <Grid container spacing={2} sx={{ mb: 4 }}>
         {myArticles.map((a) => (
@@ -66,7 +66,7 @@ export default function Home() {
       </Grid>
 
       <Typography variant="h5" sx={{ mb: 2 }}>
-        API-artiklar
+        API-articles
       </Typography>
       <Grid container spacing={2}>
         {apiArticles.map((a) => (
