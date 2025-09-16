@@ -13,7 +13,7 @@ export default function ArticleForm({ onSubmit }) {
            onSubmit={e => { e.preventDefault(); onSubmit({ title, body }); setTitle(''); setBody(''); }}>
       <TextField label="Titel" value={title} onChange={e => setTitle(e.target.value)} required />
       <TextField label="Text" value={body} onChange={e => setBody(e.target.value)} required multiline minRows={3} />
-      <Button type="submit" variant="contained">Skapa artikel</Button>
+      <Button type="submit" variant="contained">Create article</Button>
     </Stack>
   );
 }

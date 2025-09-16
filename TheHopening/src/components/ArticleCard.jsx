@@ -22,10 +22,10 @@ export default function ArticleCard({ article, onOpen, onDelete }) {
       </CardContent>
       <CardActions>
         <Stack direction="row" spacing={1}>
-          <Button size="small" onClick={onOpen}>Öppna</Button>
+          <Button size="small" onClick={onOpen}>Open</Button>
           {isMine && (
             <Button size="small" color="error" onClick={onDelete}>
-              Radera
+              Delete
             </Button>
           )}
         </Stack>

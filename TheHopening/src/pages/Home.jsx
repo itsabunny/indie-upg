@@ -19,7 +19,7 @@ export default function Home() {
     if (!apiLoaded) {
       fetchApiArticles()
         .then(setApiArticles)
-        .catch(() => toast.error("Kunde inte hämta API-artiklar"));
+        .catch(() => toast.error("Couldn't fetch API-articles"));
     }
   }, [apiLoaded, setApiArticles]);
 
@@ -34,12 +34,12 @@ export default function Home() {
       createdAt: new Date().toISOString(), // date for my own articles
     };
     addMyArticle(article);
-    toast.success("Artikel skapad");
+    toast.success("Article successfully added");
   };
 
   const handleDelete = (id) => {
     deleteMyArticle(id);
-    toast("Artikel raderad", { icon: "🗑️" });
+    toast("Article successfully deleted", { icon: "🗑️" });
   };
 
   return (
