@@ -23,18 +23,18 @@ export default function Home() {
     }
   }, [apiLoaded, setApiArticles]);
 
-  const handleCreate = ({ title, body }) => {
-    const article = {
-      id: `local-${crypto.randomUUID()}`,
-      title,
-      body,
-      likes: 0,
-      dislikes: 0,
-      source: "local",
-    };
-    addMyArticle(article);
-    toast.success("Artikel skapad");
-  };
+     const handleCreate = ({ title, body }) => {
+     const article = {
+       id: `local-${crypto.randomUUID()}`,
+       title, body,
+       likes: 0, dislikes: 0,
+       source: 'local',
++      createdAt: new Date().toISOString(),
+     };
+     addMyArticle(article);
+     toast.success('Artikel skapad');
+   };
+
 
   const handleDelete = (id) => {
     deleteMyArticle(id);
