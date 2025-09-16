@@ -3,13 +3,15 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import PropTypes from "prop-types";
 
 export default function Layout({ children }) {
   return (
     <>
       <AppBar position="sticky">
         <Toolbar>
-          <Typography variant="h6" component="div">Nyhetssidan</Typography>
+          <Typography variant="h6" component="div">
+            TheHopening - senaste nyheterna, levererade med ett skutt</Typography>
         </Toolbar>
       </AppBar>
       <Box sx={{ py: 3 }}>
@@ -20,3 +22,7 @@ export default function Layout({ children }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};

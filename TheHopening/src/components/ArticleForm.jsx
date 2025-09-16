@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import PropTypes from "prop-types";
 
 export default function ArticleForm({ onSubmit }) {
   const [title, setTitle] = useState('');
@@ -16,3 +17,7 @@ export default function ArticleForm({ onSubmit }) {
     </Stack>
   );
 }
+
+ArticleForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

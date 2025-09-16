@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import PropTypes from "prop-types";
 
 export default function ArticleCard({ article, onOpen, onDelete }) {
   const isMine = article.source === 'local';
@@ -32,3 +33,17 @@ export default function ArticleCard({ article, onOpen, onDelete }) {
     </Card>
   );
 }
+
+ArticleCard.propTypes = {
+  article: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    likes: PropTypes.number,
+    dislikes: PropTypes.number,
+    source: PropTypes.oneOf(["local", "api"]).isRequired,
+    createdAt: PropTypes.string,
+  }).isRequired,
+  onOpen: PropTypes.func.isRequired,
+  onDelete: PropTypes.func, // bara för egna artiklar
+};
