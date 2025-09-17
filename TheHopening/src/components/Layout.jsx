@@ -37,7 +37,7 @@ export default function Layout({ children }) {
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div">
-            News page
+            TheHopening - latest news, let's hop to it
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Button
