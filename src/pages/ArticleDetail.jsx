@@ -7,28 +7,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
-import { useArticles } from "../store/articlesStore";
-
-function formatDate(iso) {
-  try {
-    const d = new Date(iso ?? Date.now());
-    // sv-SE ger t.ex. 15 sep. 2025 19:42
-    return new Intl.DateTimeFormat("sv-SE", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    }).format(d);
-  } catch {
-    return "";
-  }
-}
+import { useArticlesStore } from "../store/articlesStore";
+import formatDate from "../utils/formatDate";
 
 export default function ArticleDetail() {
   const { id } = useParams();
   const nav = useNavigate();
-  const { getById, reactTo } = useArticles();
+  const { getById, reactTo } = useArticlesStore();
   const article = getById(id);
 
   if (!article) {
