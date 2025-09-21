@@ -9,13 +9,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 
-import { useArticles } from "../store/articlesStore";
+import { useArticlesStore } from "../store/articlesStore";
 import { toast } from "react-hot-toast";
 import ArticleForm from "./ArticleForm";
 
 export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
-  const { addMyArticle } = useArticles();
+  const { addMyArticle } = useArticlesStore();
 
   const handleCreate = ({ title, body }) => {
     const article = {

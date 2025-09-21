@@ -1,30 +1,17 @@
-import { useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
-
-import { fetchApiArticles } from "../api/dummyJson";
-import { useArticles } from "../store/articlesStore";
 import ArticleCard from "../components/ArticleCard";
+import useArticles from "../hooks/useArticles";
 
 export default function Home() {
   const nav = useNavigate();
-  const { apiLoaded, apiArticles, myArticles, setApiArticles, deleteMyArticle } =
-    useArticles();
-
-  useEffect(() => {
-    if (!apiLoaded) {
-      fetchApiArticles()
-        .then(setApiArticles)
-        .catch(() => toast.error("Unable to fetch API-articles"));
-    }
-  }, [apiLoaded, setApiArticles]);
-
-  const handleDelete = (id) => {
-    deleteMyArticle(id);
-    toast("Article deleted", { icon: "🗑️" });
-  };
+  
+  const {
+    apiArticles,
+    myArticles,
+    handleDelete,
+  } = useArticles();
 
   return (
     <>

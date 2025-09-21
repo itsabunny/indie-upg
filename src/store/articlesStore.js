@@ -10,7 +10,7 @@ function saveLocal(items) {
   localStorage.setItem(LS_KEY, JSON.stringify(items));
 }
 
-export const useArticles = create((set, get) => ({
+export const useArticlesStore = create((set, get) => ({
   apiLoaded: false,
   apiArticles: [],
   myArticles: loadLocal(),
